@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "139635510037",
+    "project_id": "mi-tuju"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:139635510037:android:f9a604fc63f55bf1",
+        "android_client_info": {
+          "package_name": "my.mimos.mituju"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "139635510037-qf133g5h4g85tdc4hbjq89pmjfupeg7e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "my.mimos.mituju",
+            "certificate_hash": "9B790A0C1F99245E89917EFDBB0AD37A0FB4688E"
+          }
+        },
+        {
+          "client_id": "139635510037-5mh8p65d8o877v1j7pke7gcjereb6icq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEaMLvohlvpZDvJTpplI_DQQyM2Q1oiJQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

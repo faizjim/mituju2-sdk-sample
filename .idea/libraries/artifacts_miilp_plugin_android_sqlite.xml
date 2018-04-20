@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="artifacts:miilp.plugin.android.sqlite">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/miilp.plugin.android.sqlite.aar/27281ad2aac2f0c8a8d3bede0e34b97f/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/miilp.plugin.android.sqlite.aar/27281ad2aac2f0c8a8d3bede0e34b97f/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

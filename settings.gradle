@@ -1,0 +1,1 @@
+include ':app', ':miilp.plugin.android', ':miilp.plugin.android.ble', ':miilp.plugin.android.sqlite', ':miilplib.android', ':m3gnet_libraries', ':mi-ilpservice', ':maptool'

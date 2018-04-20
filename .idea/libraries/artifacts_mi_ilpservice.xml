@@ -1,0 +1,20 @@
+<component name="libraryTable">
+  <library name="artifacts:mi-ilpservice">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/mi-ilpservice-release.aar/3e6e1410c61eaf87a2cbe6c5959d2703/jars/libs/bcpg-jdk15-143.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/mi-ilpservice-release.aar/3e6e1410c61eaf87a2cbe6c5959d2703/jars/libs/license3j-1.0.3.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/mi-ilpservice-release.aar/3e6e1410c61eaf87a2cbe6c5959d2703/jars/libs/miilp.plugin.alvin.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/mi-ilpservice-release.aar/3e6e1410c61eaf87a2cbe6c5959d2703/jars/libs/miilp.plugin.faiz.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/mi-ilpservice-release.aar/3e6e1410c61eaf87a2cbe6c5959d2703/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/mi-ilpservice-release.aar/3e6e1410c61eaf87a2cbe6c5959d2703/jars/libs/bcprov-jdk15-143.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/mi-ilpservice-release.aar/3e6e1410c61eaf87a2cbe6c5959d2703/jars/libs/utility.core.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/mi-ilpservice-release.aar/3e6e1410c61eaf87a2cbe6c5959d2703/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/mi-ilpservice-release.aar/3e6e1410c61eaf87a2cbe6c5959d2703/jars/libs/slf4j-android-1.6.1-RC1.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/mi-ilpservice-release.aar/3e6e1410c61eaf87a2cbe6c5959d2703/jars/libs/miilp.core.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/mi-ilpservice-release.aar/3e6e1410c61eaf87a2cbe6c5959d2703/jars/libs/log4j-over-slf4j-1.7.21.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/mi-ilpservice-release.aar/3e6e1410c61eaf87a2cbe6c5959d2703/jars/libs/utility.plugin.license3j.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

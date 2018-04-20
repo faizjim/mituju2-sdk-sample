@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="artifacts:miilplib.android">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/miilplib.android.aar/2f1575fc284453acab41d37384c80a1d/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/miilplib.android.aar/2f1575fc284453acab41d37384c80a1d/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
