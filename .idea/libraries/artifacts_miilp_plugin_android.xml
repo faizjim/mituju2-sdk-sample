@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="artifacts:miilp.plugin.android">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/miilp.plugin.android.aar/9ea810f1926bea7b5d5e31401e2de471/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/miilp.plugin.android.aar/9ea810f1926bea7b5d5e31401e2de471/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/miilp.plugin.android.aar/26e5b7f90bf43fb4f548622fa024eeb3/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/miilp.plugin.android.aar/26e5b7f90bf43fb4f548622fa024eeb3/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
