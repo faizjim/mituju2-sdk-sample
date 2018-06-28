@@ -14,8 +14,10 @@
             <option value="$PROJECT_DIR$/mi-ilpservice" />
             <option value="$PROJECT_DIR$/miilp.plugin.android" />
             <option value="$PROJECT_DIR$/miilp.plugin.android.ble" />
+            <option value="$PROJECT_DIR$/miilp.plugin.android.googleplay" />
             <option value="$PROJECT_DIR$/miilp.plugin.android.sqlite" />
             <option value="$PROJECT_DIR$/miilplib.android" />
+            <option value="$PROJECT_DIR$/utility.ui.android" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

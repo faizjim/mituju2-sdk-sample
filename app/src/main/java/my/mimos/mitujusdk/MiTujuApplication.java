@@ -37,7 +37,7 @@ public class MiTujuApplication extends Application {
 
     public static String ROOTPATH                              = Environment.getExternalStorageDirectory().getPath() + "/";
     public static String FINGERPRINT_DB                        = "miilp.db";
-    public static String COMPRESSED_DB                         = "psdc.zip";
+    public static String COMPRESSED_DB                         = "tractive.zip";
 
     public ModeSelector algo_selector;
     public final ILPConstants ilp_constant                     = new ILPConstants(this);

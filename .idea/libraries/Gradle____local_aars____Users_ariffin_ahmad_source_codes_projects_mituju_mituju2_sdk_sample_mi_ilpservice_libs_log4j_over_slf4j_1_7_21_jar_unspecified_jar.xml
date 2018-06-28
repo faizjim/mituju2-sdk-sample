@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: __local_aars__:/Users/ariffin.ahmad/source_codes/projects/mituju/mituju2-sdk-sample/mi-ilpservice/libs/log4j-over-slf4j-1.7.21.jar:unspecified@jar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/mi-ilpservice/libs/log4j-over-slf4j-1.7.21.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

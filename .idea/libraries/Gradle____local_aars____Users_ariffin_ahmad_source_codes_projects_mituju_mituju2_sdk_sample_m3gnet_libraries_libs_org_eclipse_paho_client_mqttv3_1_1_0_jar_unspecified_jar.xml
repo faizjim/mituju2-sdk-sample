@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: __local_aars__:/Users/ariffin.ahmad/source_codes/projects/mituju/mituju2-sdk-sample/m3gnet_libraries/libs/org.eclipse.paho.client.mqttv3-1.1.0.jar:unspecified@jar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/m3gnet_libraries/libs/org.eclipse.paho.client.mqttv3-1.1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

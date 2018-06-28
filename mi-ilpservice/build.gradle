@@ -1,2 +1,47 @@
-configurations.maybeCreate("default")
-artifacts.add("default", file('mi-ilpservice-release.aar'))
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion '27.0.3'
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 25
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+
+dependencies {
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    implementation 'com.android.support:appcompat-v7:25.4.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'com.google.android.gms:play-services-location:11.0.2'
+    testImplementation 'junit:junit:4.12'
+    api project(':m3gnet_libraries')
+    api project(':miilp.plugin.android')
+    implementation project(':miilp.plugin.android.ble')
+    implementation project(':miilp.plugin.android.sqlite')
+    implementation project(':miilp.plugin.android.googleplay')
+    implementation project(':utility.ui.android')
+    api project(':miilplib.android')
+    implementation files('libs/bcpg-jdk15-143.jar')
+    implementation files('libs/bcprov-jdk15-143.jar')
+    implementation files('libs/license3j-1.0.3.jar')
+    implementation files('libs/log4j-over-slf4j-1.7.21.jar')
+    api files('libs/miilp.core.jar')
+    implementation files('libs/miilp.plugin.alvin.jar')
+    implementation files('libs/miilp.plugin.faiz.jar')
+    implementation files('libs/slf4j-android-1.6.1-RC1.jar')
+    implementation files('libs/utility.core.jar')
+    implementation files('libs/utility.plugin.license3j.jar')
+}

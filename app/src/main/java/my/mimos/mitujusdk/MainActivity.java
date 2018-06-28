@@ -819,6 +819,11 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
         }
+
+        @Override
+        public void onILPPinsLoaded() {
+
+        }
     }
 
     private class PublishIdentity implements Runnable {

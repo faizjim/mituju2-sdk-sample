@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#2962FF</color>
+    <color name="color100">#C5CAE9</color>
+    <color name="color200">#9FA8DA</color>
+    <color name="color300">#7986CB</color>
+    <color name="color400">#5C6BC0</color>
+    <color name="color500">#3F51B5</color>
+    <color name="colorA100">#8C9EFF</color>
+
+    <color name="blue">#2196F3</color>      <!-- 33 150 243 -->
+    <color name="blue100">#BBDEFB</color>
+    <color name="blue200">#90CAF9</color>
+    <color name="blue300">#64B5F6</color>
+    <color name="blue400">#42A5F5</color>
+    <color name="blue500">#2196F3</color>
+    <color name="blue800">#1565C0</color>
+    <color name="blue4007D">#7D42A5F5</color>
+    <color name="blueA100">#82B1FF</color>
+    <color name="blueA200">#448AFF</color>
+    <color name="blueA400">#2979FF</color>
+    <color name="blueA700">#2962FF</color>
+
+    <color name="purple">#673AB7</color>
+    <color name="purple50">#F3E5F5</color>
+    <color name="purple100">#D1C4E9</color>
+    <color name="purple200">#B39DDB</color>
+    <color name="purple300">#9575CD</color>
+    <color name="purple400">#7E57C2</color>
+    <color name="purple500">#9C27B0</color>
+    <color name="purple800">#6A1B9A</color>
+    <color name="purpleA100">#B388FF</color>
+    <color name="purpleA200">#7C4DFF</color>
+    <color name="purpleA400">#651FFF</color>
+    <color name="purpleA700">#6200EA</color>
+
+    <color name="teal500">#009688</color>
+    <color name="grey200">#EEEEEE</color>
+    <color name="grey300">#E0E0E0</color>
+    <color name="grey500">#9E9E9E</color>    <!-- 158 158 158 -->
+    <color name="grey700">#616161</color>
+    <color name="grey7007D">#7D616161</color>
+    <color name="grey700solid">#FF616161</color>
+    <color name="grey800">#424242</color>
+    <color name="grey900">#212121</color>
+
+    <color name="marker_label">#88afca</color>
+    <color name="marker_bg">#7B313231</color>
+    <color name="mimos_purple">#8F1C7E</color> <!-- 143 28 126 -->
+    <color name="red">#F44336</color>
+    <color name="redD8">#D8F44336</color>
+    <color name="yellow">#FFEB3B</color>        !-- 255 193 07 -->
+    <color name="amber">#FFC107</color>        !-- 255 193 07 -->
+    <color name="deep_orange">#FF5722</color>  <!-- 255 87 34 -->
+    <color name="deep_orange_200">#FFAB91</color>
+    <color name="green">#4CAF50</color>
+    <color name="green_android">#A4C739</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="white7D">#7DFFFFFF</color>
+    <color name="whiteD8">#D8FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="black_overlay">#66000000</color>
+</resources>

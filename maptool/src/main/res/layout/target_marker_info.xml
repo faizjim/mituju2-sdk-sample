@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/target_info_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_border_box_info"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <ImageView
+            android:id="@+id/target_info_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:tint="@color/white"
+            android:src="@drawable/ic_arrow_up"/>
+
+        <TextView
+            android:id="@+id/target_info_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/target_info_icon"
+            android:gravity="center"
+            android:maxWidth="100dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/target_info_snippet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/target_info_title"
+            android:layout_alignLeft="@+id/target_info_title"
+            android:layout_marginTop="2dp"
+            android:layout_marginLeft="2dp"
+            android:textColor="@color/grey300"
+            android:textStyle="bold"
+            android:maxLines="1"
+            android:textSize="10sp" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="-1.5dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/arrow_down"/>
+
+</LinearLayout>
