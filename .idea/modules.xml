@@ -3,16 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/m3gnet_libraries/m3gnet_libraries.iml" filepath="$PROJECT_DIR$/m3gnet_libraries/m3gnet_libraries.iml" />
       <module fileurl="file://$PROJECT_DIR$/maptool/maptool.iml" filepath="$PROJECT_DIR$/maptool/maptool.iml" />
       <module fileurl="file://$PROJECT_DIR$/mi-ilpservice/mi-ilpservice.iml" filepath="$PROJECT_DIR$/mi-ilpservice/mi-ilpservice.iml" />
-      <module fileurl="file://$PROJECT_DIR$/miilp.plugin.android/miilp.plugin.android.iml" filepath="$PROJECT_DIR$/miilp.plugin.android/miilp.plugin.android.iml" />
-      <module fileurl="file://$PROJECT_DIR$/miilp.plugin.android.ble/miilp.plugin.android.ble.iml" filepath="$PROJECT_DIR$/miilp.plugin.android.ble/miilp.plugin.android.ble.iml" />
-      <module fileurl="file://$PROJECT_DIR$/miilp.plugin.android.googleplay/miilp.plugin.android.googleplay.iml" filepath="$PROJECT_DIR$/miilp.plugin.android.googleplay/miilp.plugin.android.googleplay.iml" />
-      <module fileurl="file://$PROJECT_DIR$/miilp.plugin.android.sqlite/miilp.plugin.android.sqlite.iml" filepath="$PROJECT_DIR$/miilp.plugin.android.sqlite/miilp.plugin.android.sqlite.iml" />
       <module fileurl="file://$PROJECT_DIR$/miilplib.android/miilplib.android.iml" filepath="$PROJECT_DIR$/miilplib.android/miilplib.android.iml" />
       <module fileurl="file://$PROJECT_DIR$/mituju2-sdk-sample.iml" filepath="$PROJECT_DIR$/mituju2-sdk-sample.iml" />
-      <module fileurl="file://$PROJECT_DIR$/utility.ui.android/utility.ui.android.iml" filepath="$PROJECT_DIR$/utility.ui.android/utility.ui.android.iml" />
     </modules>
   </component>
 </project>

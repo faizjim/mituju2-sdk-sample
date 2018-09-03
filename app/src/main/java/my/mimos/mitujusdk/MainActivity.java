@@ -2,7 +2,6 @@ package my.mimos.mitujusdk;
 
 import android.Manifest;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Handler;
@@ -12,17 +11,14 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.InputType;
 import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -30,22 +26,16 @@ import android.widget.TextView;
 
 import com.google.android.gms.maps.model.LatLng;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import my.mimos.m3gnet.libraries.util.AbsWorkerThread;
 import my.mimos.miilp.core.algo.Location;
 import my.mimos.miilp.plugin.android.model.ProfileWithMap;
 import my.mimos.mituju.v2.ilpservice.LocEngineWorker;
-import my.mimos.mituju.v2.ilpservice.struc.ProfileAssets;
 import my.mimos.mituju.v2.ilpservice.struc.ProfilesInfo;
-import my.mimos.mitujusdk.mqtt.MQTTServer;
-import my.mimos.mitujusdk.mqtt.SiteConfig;
+import my.mimos.mituju.v2.ilpservice.util.AbsWorkerThread;
 import my.mimos.mitujusdk.search.SearchView;
 import my.mimos.mituju.v2.ilpservice.ILPConstants;
 import my.mimos.mituju.v2.ilpservice.db.TblPoints;
@@ -76,8 +66,6 @@ public class MainActivity extends AppCompatActivity {
     private ImageView img_vote0;
     private ImageView img_vote1;
     private ImageView img_vote2;
-    private ImageView img_mqtt_dispatched;
-    private ImageView img_mqtt_received;
     private Button btn_direction;
     private Button btn_navigate;
     private ProfileButton btn_up;
@@ -90,21 +78,16 @@ public class MainActivity extends AppCompatActivity {
     private float current_y                                    = -1f;
     private int infobar_height                                 = 0;
 
-    private MQTTStatusBlinker mqqt_dispatched_blinker;
     private Animation anim_blink;
     private int color_grey500;
     private int color_deep_orange200;
     private int color_blueA400;
-    private int color_green;
-    private int color_black;
-    private int color_yellow;
 
     private MiTujuApplication app;
     private TblPoints.ILPPoint target_navigation_point         = null;
     private NavigationWorker navigation_worker                 = new NavigationWorker();
     private ModeSelectorWorker algo_worker                     = new ModeSelectorWorker();
 
-    private MQTTListener mqtt_listener                         = new MQTTListener();
     private ILPListener ilp_listener                           = new ILPListener();
 
     @Override
@@ -126,9 +109,6 @@ public class MainActivity extends AppCompatActivity {
         color_grey500         = getResources().getColor(R.color.grey500);
         color_deep_orange200  = getResources().getColor(R.color.deep_orange_200);
         color_blueA400        = getResources().getColor(R.color.blueA400);
-        color_green           = getResources().getColor(R.color.green);
-        color_black           = getResources().getColor(R.color.black);
-        color_yellow          = getResources().getColor(R.color.amber);
 
         ActionBar action_bar = getSupportActionBar();
         if (action_bar != null)
@@ -154,55 +134,11 @@ public class MainActivity extends AppCompatActivity {
         img_vote0                = (ImageView) findViewById(R.id.main_voting_0);
         img_vote1                = (ImageView) findViewById(R.id.main_voting_1);
         img_vote2                = (ImageView) findViewById(R.id.main_voting_2);
-        img_mqtt_dispatched      = (ImageView) findViewById(R.id.main_mqtt_dispatched);
-        img_mqtt_received        = (ImageView) findViewById(R.id.main_mqtt_received);
         btn_direction            = (Button) findViewById(R.id.main_info_direction);
         btn_navigate             = (Button) findViewById(R.id.main_info_navigate);
         map_fragment             = (MyMapFragment) getSupportFragmentManager().findFragmentById(R.id.main_map);
         btn_up                   = (ProfileButton) findViewById(R.id.main_profile_up);
         btn_down                 = (ProfileButton) findViewById(R.id.main_profile_down);
-
-        mqqt_dispatched_blinker  = new MQTTStatusBlinker(img_mqtt_dispatched);
-
-        text_user.setText(app.MQTT_NAME);
-        text_user.setClickable(true);
-        text_user.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                LayoutInflater inflater     = LayoutInflater.from(MainActivity.this);
-                View input_view             = inflater.inflate(R.layout.input_layout, null);
-                TextView title              = (TextView) input_view.findViewById(R.id.input_layout_title);
-                final EditText input        = (EditText) input_view.findViewById(R.id.input_layout_edit);
-
-                builder.setView(input_view);
-                title.setText("Modify Name:");
-                input.setInputType(InputType.TYPE_CLASS_TEXT);
-                input.setText(app.MQTT_NAME);
-                input.setSelection(app.MQTT_NAME.length());
-
-                builder.setPositiveButton("Modify", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        String tmp = input.getText().toString().trim();
-                        if (tmp != null && tmp.length() > 0 && !tmp.equals(app.MQTT_NAME)) {
-                            app.storeName(tmp);
-                            text_user.setText(app.MQTT_NAME);
-                            new Thread(new PublishIdentity()).start();
-                        }
-                    }
-                });
-                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                    }
-                });
-
-                AlertDialog dialog = builder.create();
-                dialog.setCanceledOnTouchOutside(false);
-                dialog.show();
-            }
-        });
 
         displayAlgoMode(-1);
         img_ble_mode.setClickable(true);
@@ -355,16 +291,6 @@ public class MainActivity extends AppCompatActivity {
         };
         map_fragment.startMarkerCompass(this);
 
-
-        if (app.mqtt_server != null) {
-            if (app.mqtt_server.callback == null || app.mqtt_server.callback != mqtt_listener)
-                app.mqtt_server.callback = mqtt_listener;
-            if (app.mqtt_server != null && app.mqtt_server.isConnected()) {
-                img_mqtt_dispatched.setColorFilter(color_deep_orange200);
-                img_mqtt_received.setColorFilter(color_deep_orange200);
-            }
-        }
-
         Log.wtf(MiTujuApplication.TAG, ">>>>>>>> main activity - oncreate: screen width '" + SCREEN_WIDTH + "' - screen height '" + SCREEN_HEIGHT + "'");
         app.ilp_constant.listeners.add(ilp_listener);
         gotPermissions();
@@ -505,23 +431,10 @@ public class MainActivity extends AppCompatActivity {
             app.ilp_constant.listeners.remove(ilp_listener);
             map_fragment.stopMarkerCompass();
             map_fragment.destroyTileOverlay();
-
-            if (app.mqtt_server.callback != null) {
-                app.mqtt_server.disconnect();
-                if (app.mqtt_server.callback == mqtt_listener)
-                    app.mqtt_server.callback = null;
-            }
         }
     }
 
     private void initILP() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                if (app.mqtt_server != null && !app.mqtt_server.isConnected())
-                    app.mqtt_server.connect(MiTujuApplication.MQTT_USERNAME, MiTujuApplication.MQTT_PASSWORD);
-            }
-        }).start();
         if (!app.ilp_constant.isServiceRunning()) {
             app.ilp_constant.startService(MiTujuApplication.ROOTPATH, app.algo_selector.getStoredAlgoMode());
         } else {
@@ -810,7 +723,6 @@ public class MainActivity extends AppCompatActivity {
         public void onILPProfilePointUpdated(final int voting_pos, Location location) {
             if (location != null) {
                 handler.post(new ILPLocationUpdater(voting_pos, location));
-                new Thread(new PublishCurrentLocation(location)).start();
             } else
                 handler.post(new Runnable() {
                     @Override
@@ -822,155 +734,6 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void onILPPinsLoaded() {
-
-        }
-    }
-
-    private class PublishIdentity implements Runnable {
-
-        @Override
-        public void run() {
-            JSONObject json_user      = new JSONObject();
-            JSONObject json_user_attr = new JSONObject();
-            JSONObject json_user_id   = new JSONObject();
-            String tmp_email          = MiTujuApplication.ANDROID_ID + "@email.com";
-
-            try {
-                json_user.put("name", MiTujuApplication.MQTT_NAME);
-                json_user.put("attr", json_user_attr);
-                json_user_attr.put("givenName", MiTujuApplication.MQTT_NAME);
-                json_user_attr.put("familyName", "");
-                json_user_attr.put("primaryEmail", tmp_email);
-                json_user_attr.put("otherIds", json_user_id);
-                json_user_id.put("googleId", MiTujuApplication.ANDROID_ID);
-
-                Log.wtf(MiTujuApplication.TAG, "mi-ilp - publishing identity to mqtt: topic - " + "m3g/ent/" + MiTujuApplication.ORG + "/" +  MiTujuApplication.SITE + "/Part/User/" + tmp_email);
-                Log.wtf(MiTujuApplication.TAG, "mi-ilp - publishing identity to mqtt: data  - " + json_user.toString());
-                app.mqtt_server.publish("m3g/ent/" + MiTujuApplication.ORG + "/" +  MiTujuApplication.SITE + "/Part/User/" + tmp_email, json_user);
-            }
-            catch (JSONException e) {
-                e.printStackTrace();
-            }
-
-        }
-
-    }
-
-    private class PublishCurrentLocation implements Runnable {
-        private final Location location;
-
-        public PublishCurrentLocation(Location location) {
-            this.location   = location;
-        }
-
-        @Override
-        public void run() {
-            JSONObject json             = new JSONObject();
-            JSONObject json_value       = new JSONObject();
-            JSONObject json_profile     = new JSONObject();
-            ProfilesInfo profiles       = app.ilp_constant.getProfiles();
-            ProfileWithMap curr_profile = profiles.current_profile;
-            String tmp_email            = MiTujuApplication.ANDROID_ID + "@email.com";
-
-            if (curr_profile != null) {
-                ProfileAssets assets = profiles.getAsset(curr_profile.getId());
-                float map_scale = curr_profile.getMapScale();
-                try {
-                    json.put("time", MiTujuApplication.getUTCNow());
-                    json.put("value", json_value);
-                    json_value.put("profileId", json_profile);
-                    json_profile.put("id", curr_profile.getId());
-                    json_profile.put("name", curr_profile.getName());
-                    json_profile.put("floor", curr_profile.getFloorNumber());
-                    json_profile.put("scale", map_scale);
-                    json_profile.put("img_width", assets.ilp_bound_width);
-                    json_profile.put("img_height", assets.ilp_bound_height);
-                    json_value.put("x", location.x);
-                    json_value.put("y", location.y);
-
-                    Log.wtf(MiTujuApplication.TAG, "mi-ilp - publishing location to mqtt: topic - " + "m3g/dat/" + MiTujuApplication.ORG + "/" + MiTujuApplication.SITE + "/Part/User/" + tmp_email + "//Pos/MiILP");
-                    Log.wtf(MiTujuApplication.TAG, "mi-ilp - publishing location to mqtt: data  - " + json.toString());
-                    app.mqtt_server.publish("m3g/dat/" + MiTujuApplication.ORG + "/" + MiTujuApplication.SITE + "/Part/User/" + tmp_email + "//Pos/MiILP", json);
-                } catch (JSONException e) {}
-            }
-        }
-    }
-
-    private class MQTTStatusUpdater implements Runnable {
-        private final int color;
-
-        public MQTTStatusUpdater(int color) {
-            this.color = color;
-        }
-
-        @Override
-        public void run() {
-            img_mqtt_dispatched.setColorFilter(color);
-            img_mqtt_received.setColorFilter(color);
-        }
-    }
-
-    private class MQTTStatusBlinker extends AbsWorkerThread {
-        private final ImageView img_status;
-
-        public MQTTStatusBlinker(ImageView img_status) {
-            this.img_status = img_status;
-        }
-
-        @Override
-        public void process() {
-            handler.post(new Runnable() {
-                @Override
-                public void run() { img_status.setColorFilter(color_green); }
-            });
-            try { Thread.sleep(300); } catch (InterruptedException e) {}
-            handler.post(new Runnable() {
-                @Override
-                public void run() { img_status.setColorFilter(color_deep_orange200); }
-            });
-        }
-    }
-
-    private class MQTTListener implements MQTTServer.IMQTTServer {
-
-        @Override
-        public void onMQTTConnecting(int i) {
-            handler.post(new MQTTStatusUpdater(color_yellow));
-        }
-
-        @Override
-        public void onMQTTConnected() {
-            handler.post(new MQTTStatusUpdater(color_deep_orange200));
-            new Thread(new PublishIdentity()).start();
-        }
-
-        @Override
-        public void onMQTTConnFailed(String s) {
-            handler.post(new MQTTStatusUpdater(color_black));
-        }
-
-        @Override
-        public void onMQTTConnLost(String s) {
-            handler.post(new MQTTStatusUpdater(color_black));
-        }
-
-        @Override
-        public void onMQTTDisconnected(String s) {
-            handler.post(new MQTTStatusUpdater(color_black));
-        }
-
-        @Override
-        public void onMQTTMessageArrived(String s, String s1) {
-
-        }
-
-        @Override
-        public void onMQTTMessageDispatched(String s, String s1) {
-            mqqt_dispatched_blinker.start();
-        }
-
-        @Override
-        public void onMQTTTopicSiteConfig(SiteConfig site) {
 
         }
     }
